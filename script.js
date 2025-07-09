@@ -1,10 +1,3 @@
-//
-//   Core Framework - Script file
-//
-//   @license    MIT (https://mit-license.org/)
-//   @author     Louis Ouellet <louis@laswitchtech.com>
-//
-
 const ProductsLookup = function(value = null, callback = null) {
 
     // Create a Modal
@@ -66,7 +59,7 @@ const ProductsLookup = function(value = null, callback = null) {
                         submit: function(form){
                             // AJAX Request
                             $.ajax({
-                                url: '/endpoint.php/products/fetchAll',
+                                url: '/api/products/fetchAll',
                                 headers: {'X-CSRF-Authorization': CSRF_KEY},
                                 type: 'POST',dataType: 'json',
                                 data: {
