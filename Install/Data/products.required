@@ -1,0 +1,27 @@
+[
+    {
+        "id": 9999,
+        "created": "2025-04-15 13:26:25",
+        "modified": "2025-04-15 13:37:08",
+        "owner": null,
+        "type": null,
+        "sku": null,
+        "upc": null,
+        "name": null,
+        "description": null,
+        "image": null,
+        "supplier": null,
+        "brand": null,
+        "qty": null,
+        "price": null,
+        "rate": null,
+        "cost": null,
+        "currency": null,
+        "organization": null,
+        "hasCommissions": 0,
+        "inColumn": "price",
+        "isUnlimited": 0,
+        "isActive": 0,
+        "isArchived": 1
+    }
+]
