@@ -152,6 +152,14 @@
         "Extra": ""
     },
     "19": {
+        "Field": "commissionCap",
+        "Type": "int(11)",
+        "Null": "NO",
+        "Key": "",
+        "Default": "0",
+        "Extra": ""
+    },
+    "20": {
         "Field": "inColumn",
         "Type": "varchar(255)",
         "Null": "NO",
@@ -159,7 +167,7 @@
         "Default": "price",
         "Extra": ""
     },
-    "20": {
+    "21": {
         "Field": "isUnlimited",
         "Type": "int(1)",
         "Null": "YES",
@@ -167,7 +175,7 @@
         "Default": "0",
         "Extra": ""
     },
-    "21": {
+    "22": {
         "Field": "isActive",
         "Type": "int(1)",
         "Null": "YES",
@@ -175,7 +183,7 @@
         "Default": "1",
         "Extra": ""
     },
-    "22": {
+    "23": {
         "Field": "isArchived",
         "Type": "int(1)",
         "Null": "YES",
