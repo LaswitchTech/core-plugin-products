@@ -224,6 +224,13 @@ const ProductsSelect = function(products, callback = null) {
                             type: 'select2',
                             modal: componentModal,
                             options: options,
+                            callback: {
+                                onChange: function(input, form){
+                                    let values = form.val();
+                                    let product = products[values.id];
+                                    form.val({'rate': product[product.inColumn]});
+                                },
+                            },
                         },
                         function(input){
                             input.addClass('mt-3');
@@ -237,8 +244,18 @@ const ProductsSelect = function(products, callback = null) {
                             label: builder.Locale.get('Price/Rate'),
                             icon: 'currency-dollar',
                             type: 'number',
+                            callback: {
+                                onChange: function(input, form){
+                                    let values = form.val();
+                                    let product = products[values.id];
+                                    let name = builder.Locale.get(product.inColumn.charAt(0).toUpperCase() + product.inColumn.slice(1));
+                                    let icon = product.inColumn === 'rate' ? 'bi bi-percent' : 'bi bi-currency-dollar';
+                                    input.label.html('<i class="bi bi-'+icon+' me-1"></i>'+name);
+                                },
+                            },
                         },
                         function(input){
+                            console.log(input);
                             input.addClass('mt-3');
                             input.input.attr('step', '0.01');
                             input.input.attr('min', '0');
