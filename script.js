@@ -44,7 +44,7 @@ const ProductsLookup = function(value = null, callback = null) {
         },
         function(modal,component){
             const componentModal = component;
-            component.header.addClass('text-bg-primary');
+            component.addClass('modal-primary');
             component.footer.submit
                 .addClass('btn-primary')
                 .removeClass('btn-link')
@@ -162,7 +162,7 @@ const ProductsSelect = function(products, callback = null) {
         },
         function(modal,component){
             const componentModal = component;
-            component.header.addClass('text-bg-primary');
+            component.addClass('modal-primary');
             component.footer.submit
                 .addClass('btn-success')
                 .removeClass('btn-link')
