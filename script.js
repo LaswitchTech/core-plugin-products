@@ -44,7 +44,7 @@ const ProductsLookup = function(value = null, callback = null) {
         },
         function(modal,component){
             const componentModal = component;
-            component.header.addClass('text-bg-primary');
+            component.addClass('modal-primary');
             component.footer.submit
                 .addClass('btn-primary')
                 .removeClass('btn-link')
@@ -162,7 +162,7 @@ const ProductsSelect = function(products, callback = null) {
         },
         function(modal,component){
             const componentModal = component;
-            component.header.addClass('text-bg-primary');
+            component.addClass('modal-primary');
             component.footer.submit
                 .addClass('btn-success')
                 .removeClass('btn-link')
@@ -245,7 +245,7 @@ const ProductsSelect = function(products, callback = null) {
                             icon: 'currency-dollar',
                             type: 'number',
                             callback: {
-                                onChange: function(input, form){
+                                onChange: function(input){
                                     let values = form.val();
                                     let product = products[values.id];
                                     let name = builder.Locale.get(product.inColumn.charAt(0).toUpperCase() + product.inColumn.slice(1));
