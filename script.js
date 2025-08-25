@@ -245,7 +245,7 @@ const ProductsSelect = function(products, callback = null) {
                             icon: 'currency-dollar',
                             type: 'number',
                             callback: {
-                                onChange: function(input, form){
+                                onChange: function(input){
                                     let values = form.val();
                                     let product = products[values.id];
                                     let name = builder.Locale.get(product.inColumn.charAt(0).toUpperCase() + product.inColumn.slice(1));
