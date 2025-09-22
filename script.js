@@ -58,32 +58,28 @@ const ProductsLookup = function(value = null, callback = null) {
                     callback:{
                         submit: function(form){
                             // AJAX Request
-                            $.ajax({
-                                url: '/api/products/fetchAll',
-                                headers: {'X-CSRF-Authorization': CSRF_KEY},
-                                type: 'POST',dataType: 'json',
-                                data: {
-                                    conditions: [
-                                        {key: 'sku', operator: '=', value: form.val('query')},
-                                        {key: 'upc', operator: '=', value: form.val('query')},
-                                        {key: 'name', operator: 'LIKE', value: '%'+form.val('query')+'%'},
-                                        {key: 'description', operator: 'LIKE', value: '%'+form.val('query')+'%'},
-                                        {key: 'type', operator: 'LIKE', value: '%'+form.val('query')+'%'},
-                                        {key: 'supplier', operator: 'LIKE', value: '%'+form.val('query')+'%'},
-                                        {key: 'brand', operator: 'LIKE', value: '%'+form.val('query')+'%'},
-                                    ],
-                                    conjunction: 'OR',
-                                },
-                                success: function(response) {
+                            API.endpoint('/products/fetchAll').data({
+                                conditions: [
+                                    {key: 'sku', operator: '=', value: form.val('query')},
+                                    {key: 'upc', operator: '=', value: form.val('query')},
+                                    {key: 'name', operator: 'LIKE', value: '%'+form.val('query')+'%'},
+                                    {key: 'description', operator: 'LIKE', value: '%'+form.val('query')+'%'},
+                                    {key: 'type', operator: 'LIKE', value: '%'+form.val('query')+'%'},
+                                    {key: 'supplier', operator: 'LIKE', value: '%'+form.val('query')+'%'},
+                                    {key: 'brand', operator: 'LIKE', value: '%'+form.val('query')+'%'},
+                                ],
+                                conjunction: 'OR',
+                            }).execute(function(response){
 
-                                    // If a callback is provided, call it with the response
-                                    if (typeof callback === 'function') {
-                                        callback(response.records);
-                                    }
-
-                                    // Close the modal
-                                    modal.hide();
+                                // If a callback is provided, call it with the response
+                                if (typeof callback === 'function') {
+                                    callback(response.records);
                                 }
+
+                                // Close the modal
+                                modal.hide();
+                            },function(xhr, status, error){
+                                modal.hide();
                             });
                         },
                     },
